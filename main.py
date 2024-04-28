@@ -3,7 +3,6 @@ def get_num_words(text):
     return len(words)
 
 def count_letters_in_book(book_text):
-
     text_as_lower = book_text.lower()
     out_counted_letters = dict()
     for letter in text_as_lower:
@@ -15,7 +14,7 @@ def count_letters_in_book(book_text):
     return out_counted_letters
 
 
-def read_book_and_return(book_name):
+def read_book_and_return_content(book_name):
     file_contents = ""
     full_path_to_book = "books/" + book_name
     with open(full_path_to_book) as f:
@@ -27,7 +26,7 @@ def sort_letters_by_num(dict):
     return dict["num"]
 
 def create_report_of_book(book_name):
-    book_content = read_book_and_return(book_name)
+    book_content = read_book_and_return_content(book_name)
     num_words = get_num_words(book_content)
     counted_letters = count_letters_in_book(book_content)
 
@@ -47,4 +46,8 @@ def create_report_of_book(book_name):
         print(f"The '{letter}' character was found {letter_dict['num']} times")
     print("--- End report ---")
 
-create_report_of_book("frankenstein.txt")
+
+def main():
+    create_report_of_book("frankenstein.txt")
+
+main()
